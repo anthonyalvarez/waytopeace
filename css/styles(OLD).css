@@ -1,0 +1,37 @@
+a:link    {
+	text-decoration: none; 
+	font-family: Arial, Helvetica, Verdana, Helvetica, Trebuchet MS, Times New Roman; 
+	font-size: 9pt; color: #990033;
+}
+a:visited  {
+	text-decoration: none; 
+	color: #990133;
+}
+ a:active  {
+ 	color:#990033;
+}
+ a:hover  {
+ 	color:#bb0500;
+}
+ table { 
+ 	 font-family: sans-serif, Verdana, Helvetica, Trebuchet MS, Times New Roman; 
+	 font-size: 9pt; 
+	 color: #666666;
+}
+ td { 
+ 	 font-family: Arial, Helvetica, "MS Sans Serif", Verdana, "Times New Roman"; 
+	 font-size: 9pt; 
+	 color: #666666;
+}
+
+body { 
+	 font-family: sans-serif, Verdana, Helvetica, Trebuchet MS, Times New Roman; 
+	 font-size: 9pt;
+	 color: #666666;
+}
+
+.footer {
+	color: #999999;
+	font-size: 11px;
+}
+

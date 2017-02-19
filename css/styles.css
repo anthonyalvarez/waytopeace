@@ -1,0 +1,45 @@
+a:link    {
+	background-color: inherit;
+	color: #990033;
+	text-decoration: none;
+	font-family: Arial, Helvetica, Verdana, "Trebuchet MS", sans-serif;
+	font-size: 9pt;
+}
+a:visited  {
+	background-color: inherit;
+	color: #990133;
+	text-decoration: none;
+}
+a:active  {
+	background-color: inherit;
+ 	color: #990033;
+}
+a:hover  {
+	background-color: inherit;
+ 	color: #bb0500;
+}
+table {
+	 background-color: inherit;
+	 color: #666666;
+ 	 font-family: Verdana, Helvetica, "Trebuchet MS", sans-serif;
+	 font-size: 9pt;
+}
+td {
+	 background-color: inherit;
+	 color: #666666;
+ 	 font-family: Arial, Helvetica, "MS Sans Serif", Verdana, sans-serif;
+	 font-size: 9pt;
+}
+
+body {
+	 background-color: #ffffff;
+	 color: #666666;
+	 font-family: Verdana, Helvetica, "Trebuchet MS", sans-serif;
+	 font-size: 9pt;
+}
+
+.footer {
+	background-color: inherit;
+	color: #999999;
+	font-size: 11px;
+}
