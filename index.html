@@ -70,268 +70,300 @@
             Your donation cannot be matched. </p>
     </div>
 
-    <!-- New Paypal button -->
-    <div id="paypal-button-container1">Participant Donation, starting at $1 USD!</div>
+    <section class="paypal-express-table">
+        <table>
+            <tr>
+                <th colspan="2">Donation Options</th>
+            </tr>
+
+            <tr>
+                <th>Participant</th>
+                <th>Sponsor</th>
+            </tr>
+
+            <tr>
+                <td>$1
+                    <!-- New Paypal button -->
+                    <div id="paypal-button-container1"></div>
+                    <script>
+                        // Optional: sandbox | production
+                        paypal.Button.render({
+
+                            env: 'sandbox',
+
+                            // Specify the style of the button
+                            style: {
+                                label: 'checkout', // checkout || credit
+                                size: 'tiny', // tiny | small | medium
+                                shape: 'pill', // pill | rect
+                                color: 'blue' // gold | blue | silver
+                            },
+
+                            client: {
+                                sandbox: 'AfG7ntj1ClOtXVMPgNT5pSyCa1EMBv7faLh-pup_rhDiJv8zIbuFtU2owtGM4V-ymyOROyP7TUvQP_sh',
+                                production: 'AZZTsPH890MsGFwBNxtyFzsurKyir8I6H5_6hiJp49ShwFfAGTD5t6M29tk27ki7kfVlWCLSRu_7umel'
+                            },
+
+                            payment: function() {
+
+                                var env = this.props.env;
+                                var client = this.props.client;
+
+                                return paypal.rest.payment.create(env, client, {
+                                    transactions: [{
+                                        amount: {
+                                            total: '1.00',
+                                            currency: 'USD'
+                                        }
+                                    }]
+                                });
+                            },
+
+                            commit: false, // Optional: show a 'Pay Now' button in the checkout flow
+
+                            onAuthorize: function(data, actions) {
+
+                                // Optional: display a confirmation page here
+
+                                return actions.payment.execute().then(function() {
+                                    // Show a success page to the buyer
+                                    document.querySelector('#paypal-button-container1').innerText = 'Payment Complete for $1.00 USD! Thank you.';
+                                });
+                            }
+
+                        }, '#paypal-button-container1');
+                    </script>
+
+                </td>
+                <td>$1000 yearly
+                    <div id="paypal-button-container1000"></div>
+
+                    <script>
+                        // Optional: sandbox | production
+                        paypal.Button.render({
+
+                            env: 'sandbox',
+
+                            // Specify the style of the button
+                            style: {
+                                label: 'checkout', // checkout || credit
+                                size: 'tiny', // tiny | small | medium
+                                shape: 'pill', // pill | rect
+                                color: 'blue' // gold | blue | silver
+                            },
+
+                            client: {
+                                sandbox: 'AfG7ntj1ClOtXVMPgNT5pSyCa1EMBv7faLh-pup_rhDiJv8zIbuFtU2owtGM4V-ymyOROyP7TUvQP_sh',
+                                production: 'AZZTsPH890MsGFwBNxtyFzsurKyir8I6H5_6hiJp49ShwFfAGTD5t6M29tk27ki7kfVlWCLSRu_7umel'
+                            },
+
+                            payment: function() {
+
+                                var env = this.props.env;
+                                var client = this.props.client;
+
+                                return paypal.rest.payment.create(env, client, {
+                                    transactions: [{
+                                        amount: {
+                                            total: '1000.00',
+                                            currency: 'USD'
+                                        }
+                                    }]
+                                });
+                            },
+
+                            commit: false, // Optional: show a 'Pay Now' button in the checkout flow
+
+                            onAuthorize: function(data, actions) {
+
+                                // Optional: display a confirmation page here
+
+                                return actions.payment.execute().then(function() {
+                                    // Show a success page to the buyer
+                                    document.querySelector('#paypal-button-container5').innerText = 'Payment Complete for $1000.00 USD! Thank you.';
+                                });
+                            }
+
+                        }, '#paypal-button-container1000');
+                    </script>
+                </td>
+            </tr>
+
+            <tr>
+                <td>$30
+                    <div id="paypal-button-container30"></div>
+                    <script>
+                        // Optional: sandbox | production
+                        paypal.Button.render({
+
+                            env: 'sandbox',
+
+                            // Specify the style of the button
+
+                            style: {
+                                label: 'checkout', // checkout || credit
+                                size: 'tiny', // tiny | small | medium
+                                shape: 'pill', // pill | rect
+                                color: 'blue' // gold | blue | silver
+                            },
+
+                            client: {
+                                sandbox: 'AfG7ntj1ClOtXVMPgNT5pSyCa1EMBv7faLh-pup_rhDiJv8zIbuFtU2owtGM4V-ymyOROyP7TUvQP_sh',
+                                production: 'AZZTsPH890MsGFwBNxtyFzsurKyir8I6H5_6hiJp49ShwFfAGTD5t6M29tk27ki7kfVlWCLSRu_7umel'
+                            },
+
+                            payment: function() {
+
+                                var env = this.props.env;
+                                var client = this.props.client;
+
+                                return paypal.rest.payment.create(env, client, {
+                                    transactions: [{
+                                        amount: {
+                                            total: '30.00',
+                                            currency: 'USD'
+                                        }
+                                    }]
+                                });
+                            },
+
+                            commit: false, // Optional: show a 'Pay Now' button in the checkout flow
+
+                            onAuthorize: function(data, actions) {
+
+                                // Optional: display a confirmation page here
+
+                                return actions.payment.execute().then(function() {
+                                    // Show a success page to the buyer
+                                    document.querySelector('#paypal-button-container30').innerText = 'Payment Complete for $30.00 USD! Thank you.';
+                                });
+                            }
+
+                        }, '#paypal-button-container30');
+                    </script>
+                </td>
+                <td>Over $1000 yearly</td>
+            </tr>
+
+            <tr>
+                <td>$60
+                    <div id="paypal-button-container60"></div>
+                    <script>
+                        // Optional: sandbox | production
+                        paypal.Button.render({
+
+                            env: 'sandbox',
+
+                            // Specify the style of the button
+                            style: {
+                                label: 'checkout', // checkout || credit
+                                size: 'tiny', // tiny | small | medium
+                                shape: 'pill', // pill | rect
+                                color: 'blue' // gold | blue | silver
+                            },
+
+                            client: {
+                                sandbox: 'AfG7ntj1ClOtXVMPgNT5pSyCa1EMBv7faLh-pup_rhDiJv8zIbuFtU2owtGM4V-ymyOROyP7TUvQP_sh',
+                                production: 'AZZTsPH890MsGFwBNxtyFzsurKyir8I6H5_6hiJp49ShwFfAGTD5t6M29tk27ki7kfVlWCLSRu_7umel'
+                            },
+
+                            payment: function() {
+
+                                var env = this.props.env;
+                                var client = this.props.client;
+
+                                return paypal.rest.payment.create(env, client, {
+                                    transactions: [{
+                                        amount: {
+                                            total: '60.00',
+                                            currency: 'USD'
+                                        }
+                                    }]
+                                });
+                            },
+
+                            commit: false, // Optional: show a 'Pay Now' button in the checkout flow
+
+                            onAuthorize: function(data, actions) {
+
+                                // Optional: display a confirmation page here
+
+                                return actions.payment.execute().then(function() {
+                                    // Show a success page to the buyer
+                                    document.querySelector('#paypal-button-container60').innerText = 'Payment Complete for $60 USD! Thank you.';
+                                });
+                            }
+
+                        }, '#paypal-button-container60');
+                    </script>
+                </td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>$90
+                    <div id="paypal-button-container90"></div>
+                    <script>
+                        // Optional: sandbox | production
+                        paypal.Button.render({
+
+                            env: 'sandbox',
+
+                            // Specify the style of the button
+                            style: {
+                                label: 'checkout', // checkout || credit
+                                size: 'tiny', // tiny | small | medium
+                                shape: 'pill', // pill | rect
+                                color: 'blue' // gold | blue | silver
+                            },
+
+                            client: {
+                                sandbox: 'AfG7ntj1ClOtXVMPgNT5pSyCa1EMBv7faLh-pup_rhDiJv8zIbuFtU2owtGM4V-ymyOROyP7TUvQP_sh',
+                                production: 'AZZTsPH890MsGFwBNxtyFzsurKyir8I6H5_6hiJp49ShwFfAGTD5t6M29tk27ki7kfVlWCLSRu_7umel'
+                            },
+
+                            payment: function() {
+
+                                var env = this.props.env;
+                                var client = this.props.client;
+
+                                return paypal.rest.payment.create(env, client, {
+                                    transactions: [{
+                                        amount: {
+                                            total: '90.00',
+                                            currency: 'USD'
+                                        }
+                                    }]
+                                });
+                            },
+
+                            commit: false, // Optional: show a 'Pay Now' button in the checkout flow
+
+                            onAuthorize: function(data, actions) {
+
+                                // Optional: display a confirmation page here
+
+                                return actions.payment.execute().then(function() {
+                                    // Show a success page to the buyer
+                                    document.querySelector('#paypal-button-container90').innerText = 'Payment Complete for $90.00 USD! Thank you.';
+                                });
+                            }
+
+                        }, '#paypal-button-container90');
+                    </script>
+                </td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Over $90</td>
+                <td></td>
+            </tr>
+        </table>
+    </section>
 
-    <script>
-        // Optional: sandbox | production
-        paypal.Button.render({
 
-            env: 'sandbox',
 
-            // Specify the style of the button
-            style: {
-                label: 'checkout', // checkout || credit
-                size: 'medium', // tiny | small | medium
-                shape: 'rect', // pill | rect
-                color: 'blue' // gold | blue | silver
-            },
-
-            client: {
-                sandbox: 'AfG7ntj1ClOtXVMPgNT5pSyCa1EMBv7faLh-pup_rhDiJv8zIbuFtU2owtGM4V-ymyOROyP7TUvQP_sh',
-                production: 'AZZTsPH890MsGFwBNxtyFzsurKyir8I6H5_6hiJp49ShwFfAGTD5t6M29tk27ki7kfVlWCLSRu_7umel'
-            },
-
-            payment: function() {
-
-                var env = this.props.env;
-                var client = this.props.client;
-
-                return paypal.rest.payment.create(env, client, {
-                    transactions: [{
-                        amount: {
-                            total: '1.00',
-                            currency: 'USD'
-                        }
-                    }]
-                });
-            },
-
-            commit: false, // Optional: show a 'Pay Now' button in the checkout flow
-
-            onAuthorize: function(data, actions) {
-
-                // Optional: display a confirmation page here
-
-                return actions.payment.execute().then(function() {
-                    // Show a success page to the buyer
-                    document.querySelector('#paypal-button-container1').innerText = 'Payment Complete for $1.00 USD! Thank you.';
-                });
-            }
-
-        }, '#paypal-button-container1');
-    </script>
-    <!-- New Paypal button -->
-
-    <div id="paypal-button-container30">Participant Donation at $30 USD</div>
-
-    <script>
-        // Optional: sandbox | production
-        paypal.Button.render({
-
-            env: 'sandbox',
-
-            // Specify the style of the button
-
-            style: {
-                label: 'checkout', // checkout || credit
-                size: 'medium', // tiny | small | medium
-                shape: 'rect', // pill | rect
-                color: 'blue' // gold | blue | silver
-            },
-
-            client: {
-                sandbox: 'AfG7ntj1ClOtXVMPgNT5pSyCa1EMBv7faLh-pup_rhDiJv8zIbuFtU2owtGM4V-ymyOROyP7TUvQP_sh',
-                production: 'AZZTsPH890MsGFwBNxtyFzsurKyir8I6H5_6hiJp49ShwFfAGTD5t6M29tk27ki7kfVlWCLSRu_7umel'
-            },
-
-            payment: function() {
-
-                var env = this.props.env;
-                var client = this.props.client;
-
-                return paypal.rest.payment.create(env, client, {
-                    transactions: [{
-                        amount: {
-                            total: '30.00',
-                            currency: 'USD'
-                        }
-                    }]
-                });
-            },
-
-            commit: false, // Optional: show a 'Pay Now' button in the checkout flow
-
-            onAuthorize: function(data, actions) {
-
-                // Optional: display a confirmation page here
-
-                return actions.payment.execute().then(function() {
-                    // Show a success page to the buyer
-                    document.querySelector('#paypal-button-container30').innerText = 'Payment Complete for $30.00 USD! Thank you.';
-                });
-            }
-
-        }, '#paypal-button-container30');
-    </script>
-
-    <!-- New Paypal button -->
-    <div id="paypal-button-container60">Participant Donation at $60 USD</div>
-
-    <script>
-        // Optional: sandbox | production
-        paypal.Button.render({
-
-            env: 'sandbox',
-
-            // Specify the style of the button
-            style: {
-                label: 'checkout', // checkout || credit
-                size: 'medium', // tiny | small | medium
-                shape: 'rect', // pill | rect
-                color: 'blue' // gold | blue | silver
-            },
-
-            client: {
-                sandbox: 'AfG7ntj1ClOtXVMPgNT5pSyCa1EMBv7faLh-pup_rhDiJv8zIbuFtU2owtGM4V-ymyOROyP7TUvQP_sh',
-                production: 'AZZTsPH890MsGFwBNxtyFzsurKyir8I6H5_6hiJp49ShwFfAGTD5t6M29tk27ki7kfVlWCLSRu_7umel'
-            },
-
-            payment: function() {
-
-                var env = this.props.env;
-                var client = this.props.client;
-
-                return paypal.rest.payment.create(env, client, {
-                    transactions: [{
-                        amount: {
-                            total: '60.00',
-                            currency: 'USD'
-                        }
-                    }]
-                });
-            },
-
-            commit: false, // Optional: show a 'Pay Now' button in the checkout flow
-
-            onAuthorize: function(data, actions) {
-
-                // Optional: display a confirmation page here
-
-                return actions.payment.execute().then(function() {
-                    // Show a success page to the buyer
-                    document.querySelector('#paypal-button-container60').innerText = 'Payment Complete for $60 USD! Thank you.';
-                });
-            }
-
-        }, '#paypal-button-container60');
-    </script>
-
-    <!-- New Paypal button -->
-
-    <div id="paypal-button-container90">Participant Donation at $90 USD</div>
-
-    <script>
-        // Optional: sandbox | production
-        paypal.Button.render({
-
-            env: 'sandbox',
-
-            // Specify the style of the button
-            style: {
-                label: 'checkout', // checkout || credit
-                size: 'medium', // tiny | small | medium
-                shape: 'rect', // pill | rect
-                color: 'blue' // gold | blue | silver
-            },
-
-            client: {
-                sandbox: 'AfG7ntj1ClOtXVMPgNT5pSyCa1EMBv7faLh-pup_rhDiJv8zIbuFtU2owtGM4V-ymyOROyP7TUvQP_sh',
-                production: 'AZZTsPH890MsGFwBNxtyFzsurKyir8I6H5_6hiJp49ShwFfAGTD5t6M29tk27ki7kfVlWCLSRu_7umel'
-            },
-
-            payment: function() {
-
-                var env = this.props.env;
-                var client = this.props.client;
-
-                return paypal.rest.payment.create(env, client, {
-                    transactions: [{
-                        amount: {
-                            total: '90.00',
-                            currency: 'USD'
-                        }
-                    }]
-                });
-            },
-
-            commit: false, // Optional: show a 'Pay Now' button in the checkout flow
-
-            onAuthorize: function(data, actions) {
-
-                // Optional: display a confirmation page here
-
-                return actions.payment.execute().then(function() {
-                    // Show a success page to the buyer
-                    document.querySelector('#paypal-button-container90').innerText = 'Payment Complete for $90.00 USD! Thank you.';
-                });
-            }
-
-        }, '#paypal-button-container90');
-    </script>
-
-    <!-- New Paypal button -->
-
-    <div id="paypal-button-container1000">Sponsor Donation at $1000 USD</div>
-
-    <script>
-        // Optional: sandbox | production
-        paypal.Button.render({
-
-            env: 'sandbox',
-
-            // Specify the style of the button
-            style: {
-                label: 'checkout', // checkout || credit
-                size: 'tiny', // tiny | small | medium
-                shape: 'rect', // pill | rect
-                color: 'blue' // gold | blue | silver
-            },
-
-            client: {
-                sandbox: 'AfG7ntj1ClOtXVMPgNT5pSyCa1EMBv7faLh-pup_rhDiJv8zIbuFtU2owtGM4V-ymyOROyP7TUvQP_sh',
-                production: 'AZZTsPH890MsGFwBNxtyFzsurKyir8I6H5_6hiJp49ShwFfAGTD5t6M29tk27ki7kfVlWCLSRu_7umel'
-            },
-
-            payment: function() {
-
-                var env = this.props.env;
-                var client = this.props.client;
-
-                return paypal.rest.payment.create(env, client, {
-                    transactions: [{
-                        amount: {
-                            total: '1000.00',
-                            currency: 'USD'
-                        }
-                    }]
-                });
-            },
-
-            commit: false, // Optional: show a 'Pay Now' button in the checkout flow
-
-            onAuthorize: function(data, actions) {
-
-                // Optional: display a confirmation page here
-
-                return actions.payment.execute().then(function() {
-                    // Show a success page to the buyer
-                    document.querySelector('#paypal-button-container5').innerText = 'Payment Complete for $1000.00 USD! Thank you.';
-                });
-            }
-
-        }, '#paypal-button-container1000');
-    </script>
 
     <!-- End Payments -->
 

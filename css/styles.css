@@ -1,59 +1,102 @@
-a:link    {
-	background-color: inherit;
-	color: #990033;
-	text-decoration: none;
-	font-family: Arial, Helvetica, Verdana, "Trebuchet MS", sans-serif;
-	font-size: 9pt;
+a:link {
+    background-color: inherit;
+    color: #990033;
+    text-decoration: none;
+    font-family: Arial, Helvetica, Verdana, "Trebuchet MS", sans-serif;
+    font-size: 9pt;
 }
-a:visited  {
-	background-color: inherit;
-	color: #990133;
-	text-decoration: none;
+
+a:visited {
+    background-color: inherit;
+    color: #990133;
+    text-decoration: none;
 }
-a:active  {
-	background-color: inherit;
- 	color: #990033;
+
+a:active {
+    background-color: inherit;
+    color: #990033;
 }
-a:hover  {
-	background-color: inherit;
- 	color: #bb0500;
+
+a:hover {
+    background-color: inherit;
+    color: #bb0500;
 }
+
 table {
-	 background-color: inherit;
-	 color: #666666;
- 	 font-family: Verdana, Helvetica, "Trebuchet MS", sans-serif;
-	 font-size: 9pt;
+    background-color: inherit;
+    color: #666666;
+    font-family: Verdana, Helvetica, "Trebuchet MS", sans-serif;
+    font-size: 9pt;
+    text-align: center;
+    justify-content: center;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
 }
+
 td {
-	 background-color: inherit;
-	 color: #666666;
- 	 font-family: Arial, Helvetica, "MS Sans Serif", Verdana, sans-serif;
-	 font-size: 9pt;
+    background-color: inherit;
+    color: #666666;
+    font-family: Arial, Helvetica, "MS Sans Serif", Verdana, sans-serif;
+    font-size: 9pt;
+    border: 1px solid black;
+    padding: 15px;
+}
+
+th {
+    height: 25px;
+}
+
+th,
+tr {
+    border: 1px solid black;
+}
+
+td:hover {
+    background-color: red;
+    color: white;
+    font-size: 11pt;
+    font-weight: bold;
 }
 
 body {
-	 background-color: #ffffff;
-	 color: black;
-	 font-family: Verdana, Helvetica, "Trebuchet MS", sans-serif;
-	 font-size: 11pt;
-	 width: 800px;
-	margin: auto;
+    background-color: #ffffff;
+    color: black;
+    font-family: Verdana, Helvetica, "Trebuchet MS", sans-serif;
+    font-size: 11pt;
+    width: 800px;
+    margin: auto;
 }
 
 .footer {
-	background-color: inherit;
-	color: #999999;
-	font-size: 9px;
-	text-align: center;
+    background-color: inherit;
+    color: #999999;
+    font-size: 9px;
+    text-align: center;
 }
 
 .pagetitle {
-
-	text-align: center;
-	color: red;
-	-moz-text-decoration-color: royalblue
-
+    text-align: center;
+    color: red;
+    -moz-text-decoration-color: royalblue
 }
+
+
+/* 
+#paypal-button-container1000:hover {
+    background-color: red;
+    color: white;
+    font-size: 13pt;
+}
+
+
+
+.paypal-express-table {
+    background-color: pink;
+}
+*/
+
 
 /*.leadmagnet {
 
