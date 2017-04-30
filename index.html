@@ -73,16 +73,22 @@
     <section class="paypal-express-table">
         <table>
             <tr>
-                <th colspan="2">Donation Options</th>
+                <th colspan="8">Donation Options</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>$1</th>
+                <th>$30</th>
+                <th>$60</th>
+                <th>$90</th>
+                <th>Over $90</th>
+                <th>$1000 Yearly</th>
+                <th>Over $1000 Yearly</th>
             </tr>
 
             <tr>
-                <th>Participant</th>
-                <th>Sponsor</th>
-            </tr>
-
-            <tr>
-                <td>$1
+                <td class="table-header">Participant</td>
+                <td>
                     <!-- New Paypal button -->
                     <div id="paypal-button-container1"></div>
                     <script>
@@ -133,64 +139,9 @@
 
                         }, '#paypal-button-container1');
                     </script>
-
                 </td>
-                <td>$1000 yearly
-                    <div id="paypal-button-container1000"></div>
 
-                    <script>
-                        // Optional: sandbox | production
-                        paypal.Button.render({
-
-                            env: 'sandbox',
-
-                            // Specify the style of the button
-                            style: {
-                                label: 'checkout', // checkout || credit
-                                size: 'tiny', // tiny | small | medium
-                                shape: 'pill', // pill | rect
-                                color: 'blue' // gold | blue | silver
-                            },
-
-                            client: {
-                                sandbox: 'AfG7ntj1ClOtXVMPgNT5pSyCa1EMBv7faLh-pup_rhDiJv8zIbuFtU2owtGM4V-ymyOROyP7TUvQP_sh',
-                                production: 'AZZTsPH890MsGFwBNxtyFzsurKyir8I6H5_6hiJp49ShwFfAGTD5t6M29tk27ki7kfVlWCLSRu_7umel'
-                            },
-
-                            payment: function() {
-
-                                var env = this.props.env;
-                                var client = this.props.client;
-
-                                return paypal.rest.payment.create(env, client, {
-                                    transactions: [{
-                                        amount: {
-                                            total: '1000.00',
-                                            currency: 'USD'
-                                        }
-                                    }]
-                                });
-                            },
-
-                            commit: false, // Optional: show a 'Pay Now' button in the checkout flow
-
-                            onAuthorize: function(data, actions) {
-
-                                // Optional: display a confirmation page here
-
-                                return actions.payment.execute().then(function() {
-                                    // Show a success page to the buyer
-                                    document.querySelector('#paypal-button-container5').innerText = 'Payment Complete for $1000.00 USD! Thank you.';
-                                });
-                            }
-
-                        }, '#paypal-button-container1000');
-                    </script>
-                </td>
-            </tr>
-
-            <tr>
-                <td>$30
+                <td>
                     <div id="paypal-button-container30"></div>
                     <script>
                         // Optional: sandbox | production
@@ -242,11 +193,8 @@
                         }, '#paypal-button-container30');
                     </script>
                 </td>
-                <td>Over $1000 yearly</td>
-            </tr>
 
-            <tr>
-                <td>$60
+                <td>
                     <div id="paypal-button-container60"></div>
                     <script>
                         // Optional: sandbox | production
@@ -297,11 +245,7 @@
                         }, '#paypal-button-container60');
                     </script>
                 </td>
-                <td></td>
-            </tr>
-
-            <tr>
-                <td>$90
+                <td>
                     <div id="paypal-button-container90"></div>
                     <script>
                         // Optional: sandbox | production
@@ -352,12 +296,169 @@
                         }, '#paypal-button-container90');
                     </script>
                 </td>
-                <td></td>
-            </tr>
 
+                <td>
+                    <div id="paypal-button-container-over-90"></div>
+                    <script>
+                        // Optional: sandbox | production
+                        paypal.Button.render({
+
+                            env: 'sandbox',
+
+                            // Specify the style of the button
+                            style: {
+                                label: 'checkout', // checkout || credit
+                                size: 'tiny', // tiny | small | medium
+                                shape: 'pill', // pill | rect
+                                color: 'blue' // gold | blue | silver
+                            },
+
+                            client: {
+                                sandbox: 'AfG7ntj1ClOtXVMPgNT5pSyCa1EMBv7faLh-pup_rhDiJv8zIbuFtU2owtGM4V-ymyOROyP7TUvQP_sh',
+                                production: 'AZZTsPH890MsGFwBNxtyFzsurKyir8I6H5_6hiJp49ShwFfAGTD5t6M29tk27ki7kfVlWCLSRu_7umel'
+                            },
+
+                            payment: function() {
+
+                                var env = this.props.env;
+                                var client = this.props.client;
+
+                                return paypal.rest.payment.create(env, client, {
+                                    transactions: [{
+                                        amount: {
+                                            total: '0.00',
+                                            currency: 'USD'
+                                        }
+                                    }]
+                                });
+                            },
+
+                            commit: false, // Optional: show a 'Pay Now' button in the checkout flow
+
+                            onAuthorize: function(data, actions) {
+
+                                // Optional: display a confirmation page here
+
+                                return actions.payment.execute().then(function() {
+                                    // Show a success page to the buyer
+                                    document.querySelector('#paypal-button-container-over-90').innerText = 'Payment Complete! Thank you.';
+                                });
+                            }
+
+                        }, '#paypal-button-container-over-90');
+                    </script>
+                </td>
+                <td colspan="2"></td>
+            </tr>
             <tr>
-                <td>Over $90</td>
-                <td></td>
+                <td class="table-header">Sponsor</td>
+                <td colspan="5"></td>
+                <td>
+                    <div id="paypal-button-container1000"></div>
+
+                    <script>
+                        // Optional: sandbox | production
+                        paypal.Button.render({
+
+                            env: 'sandbox',
+
+                            // Specify the style of the button
+                            style: {
+                                label: 'checkout', // checkout || credit
+                                size: 'tiny', // tiny | small | medium
+                                shape: 'rect', // pill | rect
+                                color: 'gold' // gold | blue | silver
+                            },
+
+                            client: {
+                                sandbox: 'AfG7ntj1ClOtXVMPgNT5pSyCa1EMBv7faLh-pup_rhDiJv8zIbuFtU2owtGM4V-ymyOROyP7TUvQP_sh',
+                                production: 'AZZTsPH890MsGFwBNxtyFzsurKyir8I6H5_6hiJp49ShwFfAGTD5t6M29tk27ki7kfVlWCLSRu_7umel'
+                            },
+
+                            payment: function() {
+
+                                var env = this.props.env;
+                                var client = this.props.client;
+
+                                return paypal.rest.payment.create(env, client, {
+                                    transactions: [{
+                                        amount: {
+                                            total: '1000.00',
+                                            currency: 'USD'
+                                        }
+                                    }]
+                                });
+                            },
+
+                            commit: false, // Optional: show a 'Pay Now' button in the checkout flow
+
+                            onAuthorize: function(data, actions) {
+
+                                // Optional: display a confirmation page here
+
+                                return actions.payment.execute().then(function() {
+                                    // Show a success page to the buyer
+                                    document.querySelector('#paypal-button-container5').innerText = 'Payment Complete for $1000.00 USD! Thank you.';
+                                });
+                            }
+
+                        }, '#paypal-button-container1000');
+                    </script>
+                </td>
+                <td>
+                    <div id="paypal-button-container-over-1000"></div>
+
+                    <script>
+                        // Optional: sandbox | production
+                        paypal.Button.render({
+
+                            env: 'sandbox',
+
+                            // Specify the style of the button
+                            style: {
+                                label: 'checkout', // checkout || credit
+                                size: 'tiny', // tiny | small | medium
+                                shape: 'rect', // pill | rect
+                                color: 'gold' // gold | blue | silver
+                            },
+
+                            client: {
+                                sandbox: 'AfG7ntj1ClOtXVMPgNT5pSyCa1EMBv7faLh-pup_rhDiJv8zIbuFtU2owtGM4V-ymyOROyP7TUvQP_sh',
+                                production: 'AZZTsPH890MsGFwBNxtyFzsurKyir8I6H5_6hiJp49ShwFfAGTD5t6M29tk27ki7kfVlWCLSRu_7umel'
+                            },
+
+                            payment: function() {
+
+                                var env = this.props.env;
+                                var client = this.props.client;
+
+                                return paypal.rest.payment.create(env, client, {
+                                    transactions: [{
+                                        amount: {
+                                            total: '0.00',
+                                            currency: 'USD'
+                                        }
+                                    }]
+                                });
+                            },
+
+                            commit: false, // Optional: show a 'Pay Now' button in the checkout flow
+
+                            onAuthorize: function(data, actions) {
+
+                                // Optional: display a confirmation page here
+
+                                return actions.payment.execute().then(function() {
+                                    // Show a success page to the buyer
+                                    document.querySelector('#paypal-button-container-over-1000').innerText = 'Payment Complete! Thank you.';
+                                });
+                            }
+
+                        }, '#paypal-button-container-over-1000');
+                    </script>
+
+
+                </td>
             </tr>
         </table>
     </section>
